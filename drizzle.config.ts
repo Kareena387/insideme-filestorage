@@ -16,6 +16,7 @@ export default defineConfig({
         url: process.env.DATABASE_URL!,
   },
 
+  //migrations configuration
   migrations: {
     table: "_drizzle_migration",
     schema: "public"

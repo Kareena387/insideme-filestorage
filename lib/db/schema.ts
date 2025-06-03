@@ -1,4 +1,4 @@
-import { pgTable, text, uuid, integer, boolean }
+import { pgTable, text, uuid, integer, boolean, timestamp }
     from "drizzle-orm/pg-core"
 import { relations } from "drizzle-orm"
 
@@ -56,7 +56,7 @@ export const filesRelations = relations(files, ({ one, many }) => ({
 
 }))
 
-//Type Definations
+//Type Definations - optional
 
 export const file = typeof files.$inferSelect;
 export const NewFile = typeof files.$inferInsert;

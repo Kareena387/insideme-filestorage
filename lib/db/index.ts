@@ -13,8 +13,8 @@ if (!process.env.DARABASE_URL) {
     throw new Error("Missing DATABSE_URL in environment");
 }
 
-const sql = neon(process.env.DATABASE_URL!)
+const sql = neon(process.env.DATABASE_URL!);
 
-export const db = drizzle(sql, { schema}) //-via the drizzle(DB)
+export const db = drizzle(sql, { schema}); //-via the drizzle(DB)
 
-export{sql} //if we need sometimes sql as an separate object-optional -raw sql query
+export{sql}; //if we need sometimes sql as an separate object-optional -raw sql query
