@@ -14,13 +14,14 @@ async function runMigration() {
     try {
         const sql = neon(process.env.DATABASE_URL!);
         const db = drizzle(sql);
-
         await migrate(db, { migrationsFolder: "./drizzle" });
         console.log("All migrations are successfully done");
+
 
     } catch (error) {
         console.log("All migrations are successfully done");
         process.exit(1);
+
 
     }
 
