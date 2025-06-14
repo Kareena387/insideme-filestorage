@@ -6,14 +6,17 @@ import {z} from "zod"
 
 
 //zod custom schema
-import { signUpSchema } from "@/schemas/signUpSchema"
-import { useState } from "react"
-import { email } from "zod/v4-mini"
+import { signUpSchema } from "@/schemas/signUpSchema";
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 
 
 export default function signUpForm(){
     const [verifying, setVerifiying] = useState(false);
+    const [isSubmitting, setIsSubmitting] =useState(false)
+    const [authError, setAuthError] = useState<string |null> 
+    (null)
 
     const {signUp, isLoaded, setActive} = useSignUp();
 
@@ -23,7 +26,7 @@ export default function signUpForm(){
         formState: {errors},
 
     } = useForm<z.infer<typeof signUpSchema >>  ({
-        resolver: zodResolver (signUpSchema),
+        resolver: zodResolver(signUpSchema),
         defaultValues: {
             email: "",
             password: "",
@@ -31,7 +34,11 @@ export default function signUpForm(){
         },
     });
 
-    const onSubmit = async (data: z.infer<typekf signUpSchema) => {};
+    const onSubmit = async (data: z.infer<typeof 
+    signUpSchema>) => {
+        if (!isLoaded) return;
+
+    };
     
     const handleVerificationSumbit = async () => {};
 
